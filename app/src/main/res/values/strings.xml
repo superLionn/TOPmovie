@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="search">search page</string>
+    <string name="movieinfo">Movie Info</string>
+    <string name="personalinfo">Personal Info</string>
+    <string name="plus">十</string>
+    <string name="Review">Review</string>
+    <string name="send">Send</string>
+    <string name="input">Input movie name</string>
+    <string name="searching">Search</string>
+    <string name="tag">Tags</string>
+    <string name="action">Action</string>
+    <string name="comedy">Comedy</string>
+    <string name="romance">Romance</string>
+    <string name="scifi">Sci-Fi</string>
+
+    <string name="thriller">Thriller</string>
+    <string name="actionlist">Action List</string>
+    <string name="comedylist">Comedy List</string>
+
+    <string name="romancelist">Romance List</string>
+    <string name="scifilist">Sci-Fi List</string>
+    <string name="thrillerlist">Thriller List</string>
+    <string name="name">Name</string>
+    <string name="email">E-mail</string>
+    <string name="age">Age</string>
+    <string name="gender">Gender</string>
+    <string name="From">From</string>
+    <string name="FM">Favorite Movie</string>
+    <string name="zodiac">Zodiac</string>
+    <string name="Btn">Save</string>
+    <string name="hint"> </string>
+</resources>
