@@ -1,4 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item
+        android:id="@+id/ic_home"
+        android:icon="@drawable/ic_home"
+        android:title="">
+    </item>
+    <item
+        android:id="@+id/ic_movie"
+        android:icon="@drawable/ic_movie"
+        android:title="">
+    </item>
+    <item
+        android:id="@+id/ic_search"
+        android:icon="@drawable/ic_search"
+        android:title="">
+    </item>
+    <item
+        android:id="@+id/ic_user"
+        android:icon="@drawable/ic_user"
+        android:title="">
+    </item>
 </menu>
