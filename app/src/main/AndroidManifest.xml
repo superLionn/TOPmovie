@@ -16,16 +16,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".homeActivity" />
-        <activity android:name=".searchpageActivity" />
-        <activity android:name=".movieinfoActivity" />
-        <activity android:name=".personalinfoActivity" />
+        <activity android:name=".Home.homeActivity" />
+        <activity android:name=".Search.searchpageActivity" />
+        <activity android:name=".Moive.movieinfoActivity" />
+        <activity android:name=".Profile.personalinfoActivity" />
         <activity android:name=".ReviewActivity" />
         <activity android:name=".actionActivity" />
         <activity android:name=".comedyActivity" />
         <activity android:name=".romanceActivity" />
         <activity android:name=".scifiActivity" />
-        <activity android:name=".thrillerActivity"></activity>
+        <activity android:name=".thrillerActivity"/>
+        <activity android:name=".LoginActivity"/>
+
     </application>
 
 </manifest>

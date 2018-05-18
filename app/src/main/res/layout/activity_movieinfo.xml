@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".movieinfoActivity">
+    tools:context=".Moive.movieinfoActivity">
     <TextView
         android:id="@+id/MI"
         android:layout_width="match_parent"
