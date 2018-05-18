@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.example.yuyingzhang.myapplication.Home.homeActivity;
+import com.example.yuyingzhang.myapplication.Login.EmailPasswordActivity;
 
 public class MainActivity extends AppCompatActivity {
     private static int SPLASH_TIME_OUT = 2000;
@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent  loginIntent = new Intent(MainActivity.this, LoginActivity.class);
+                Intent  loginIntent = new Intent(MainActivity.this, EmailPasswordActivity.class);
                 startActivity(loginIntent);
                 finish();
 
