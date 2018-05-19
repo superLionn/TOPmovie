@@ -93,4 +93,6 @@
         android:background="@color/colorGrey"
         android:onClick="thrillerClick"/>
 
+    <include layout="@layout/layout_bottom_navigation_view"/>
+
 </RelativeLayout>

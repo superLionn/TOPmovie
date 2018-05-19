@@ -35,17 +35,12 @@ public class BottomNavigationViewHelper {
                         context.startActivity(intent1);
                         break;
 
-                    case R.id.ic_movie: //count 1
-                        Intent intent2 = new Intent(context,movieinfoActivity.class);
-                        context.startActivity(intent2);
-                        break;
-
-                    case R.id.ic_search: //count 2
+                    case R.id.ic_search: //count 1
                         Intent intent3 = new Intent(context,searchpageActivity.class);
                         context.startActivity(intent3);
                         break;
 
-                    case R.id.ic_user: //count 3
+                    case R.id.ic_user: //count 2
                         Intent intent4 = new Intent(context,personalinfoActivity.class);
                         context.startActivity(intent4);
                         break;

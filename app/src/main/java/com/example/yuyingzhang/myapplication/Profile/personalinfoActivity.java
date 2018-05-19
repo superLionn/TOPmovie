@@ -15,13 +15,13 @@ public class personalinfoActivity extends AppCompatActivity {
 
     private static final String TAG ="PersonalinfoActivity" ;
     private Context mContext = personalinfoActivity.this;
-    private static final int ACTIVITY_NUM=3;
+    private static final int ACTIVITY_NUM=2;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_personalinfo);
         Log.d(TAG, "onCreate: started");
 
         setupBottomNavigationView();
@@ -33,6 +33,7 @@ public class personalinfoActivity extends AppCompatActivity {
         Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView.");
         BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavViewBar);
         BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
+
         BottomNavigationViewHelper.enablenavigation(mContext,bottomNavigationViewEx);
         Menu menu = bottomNavigationViewEx.getMenu();
         MenuItem menuItem = menu.getItem(ACTIVITY_NUM);

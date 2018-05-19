@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class searchpageActivity extends AppCompatActivity {
     private static final String TAG = "searchpageActivity";
     private Context mContext = searchpageActivity.this;
-    private static final int ACTIVITY_NUM=2;
+    private static final int ACTIVITY_NUM=1;
 
     AutoCompleteTextView search_box;
     Spinner movies;
