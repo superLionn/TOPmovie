@@ -11,24 +11,31 @@
         android:layout_height="wrap_content"
         android:text="@string/Review"
         android:textColor="@color/colorPrimary"
-        android:textSize="20sp"
+        android:textSize="30sp"
         />
     <Button
         android:id="@+id/sendbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
         android:text="@string/send"
         android:textColor="@color/colorWhite"
         android:textStyle="bold"
         android:background="@color/colorPrimary"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="250dp"/>
-    <RelativeLayout
+        android:theme="@style/Animation.AppCompat.Dialog"
+        android:layout_marginTop="5dp"/>
+    <EditText
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="30dp">
-
-
-    </RelativeLayout>
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:enabled="true"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:minLines="8"
+        android:maxLines="10"
+        android:scrollbars="vertical"
+        android:background="@android:drawable/edit_text"
+        android:hint="@string/addReview"
+        />
 
 </RelativeLayout>

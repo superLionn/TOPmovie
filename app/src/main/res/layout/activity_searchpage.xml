@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Search.searchpageActivity">
-    <EditText
-        android:id="@+id/search_bar"
-        android:layout_width="230dp"
-        android:layout_height="50dp"
-        android:hint="@string/input"
-        android:inputType="text"/>
+    <AutoCompleteTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/search_box"
+        android:completionThreshold="1"
+        android:hint="@string/input"/>
+
     <Button
         android:id="@+id/btn1"
         android:layout_width="80dp"
@@ -20,6 +21,13 @@
         android:text="@string/searching"
         android:textColor="@color/colorWhite"
         android:background="@color/colorPrimary"/>
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/search_box"
+        android:layout_marginTop="30dp"
+        android:id="@+id/movies">
+    </Spinner>
     <TextView
         android:id="@+id/tag"
         android:layout_width="wrap_content"

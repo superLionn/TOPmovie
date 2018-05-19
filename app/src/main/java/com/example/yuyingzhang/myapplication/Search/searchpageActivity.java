@@ -8,6 +8,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.Spinner;
 
 import com.example.yuyingzhang.myapplication.R;
 import com.example.yuyingzhang.myapplication.Utils.BottomNavigationViewHelper;
@@ -18,18 +21,34 @@ import com.example.yuyingzhang.myapplication.scifiActivity;
 import com.example.yuyingzhang.myapplication.thrillerActivity;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
+import java.util.ArrayList;
+
 public class searchpageActivity extends AppCompatActivity {
     private static final String TAG = "searchpageActivity";
     private Context mContext = searchpageActivity.this;
     private static final int ACTIVITY_NUM=2;
 
+    AutoCompleteTextView search_box;
+    Spinner movies;
+    ArrayList<String> movie=new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_searchpage);
         Log.d(TAG, "onCreate: started");
 
         setupBottomNavigationView();
+        search_box=(AutoCompleteTextView)findViewById(R.id.search_box);
+        movies=(Spinner)findViewById(R.id.movies);
+        movie.add("Titanic");
+        movie.add("La La Land");
+        movie.add("Love Actually");
+        movie.add("A Walk to Remember");
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(searchpageActivity.this,android.R.layout.simple_spinner_dropdown_item,movie);
+        ArrayAdapter<String> adapter1=new ArrayAdapter<String>(searchpageActivity.this,android.R.layout.simple_spinner_dropdown_item,movie);
+        search_box.setAdapter(adapter);
+        movies.setAdapter(adapter);
     }
     /**
      * bottomNavigationView setup
