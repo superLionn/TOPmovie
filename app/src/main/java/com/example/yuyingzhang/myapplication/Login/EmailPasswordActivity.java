@@ -98,6 +98,7 @@ public class EmailPasswordActivity extends BaseActivity implements
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
@@ -132,6 +133,11 @@ public class EmailPasswordActivity extends BaseActivity implements
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
+
+
+                            Intent intent = new Intent(EmailPasswordActivity.this, homeActivity.class);
+                            startActivity(intent);
+                            finish();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
@@ -150,6 +156,7 @@ public class EmailPasswordActivity extends BaseActivity implements
                 });
         // [END sign_in_with_email]
     }
+
 
     private void signOut() {
         mAuth.signOut();
@@ -221,6 +228,10 @@ public class EmailPasswordActivity extends BaseActivity implements
             findViewById(R.id.signed_in_buttons).setVisibility(View.VISIBLE);
 
             findViewById(R.id.verify_email_button).setEnabled(!user.isEmailVerified());
+
+            Intent intent = new Intent(EmailPasswordActivity.this, homeActivity.class);
+            startActivity(intent);
+            finish();
         } else {
             mStatusTextView.setText(R.string.signed_out);
             mDetailTextView.setText(null);

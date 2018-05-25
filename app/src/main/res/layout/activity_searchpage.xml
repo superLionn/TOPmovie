@@ -16,7 +16,7 @@
         android:id="@+id/btn1"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="240dp"
+        android:layout_alignParentEnd="true"
 
         android:text="@string/searching"
         android:textColor="@color/colorWhite"
@@ -28,11 +28,12 @@
         android:layout_marginTop="30dp"
         android:id="@+id/movies">
     </Spinner>
+
     <TextView
         android:id="@+id/tag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="110dp"
         android:layout_marginStart="10dp"
         android:text="@string/tag"
         android:textSize="25sp"
@@ -41,7 +42,7 @@
         android:id="@+id/btn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="150dp"
         android:layout_marginStart="10dp"
         android:text="@string/action"
         android:textColor="@color/colorWhite"
@@ -52,7 +53,7 @@
         android:id="@+id/btn3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="150dp"
         android:layout_marginStart="120dp"
         android:text="@string/comedy"
         android:textColor="@color/colorWhite"
@@ -64,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="230dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="150dp"
         android:text="@string/scifi"
         android:textColor="@color/colorWhite"
         android:textStyle="bold"

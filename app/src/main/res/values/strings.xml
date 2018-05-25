@@ -129,6 +129,16 @@
 
     <string name="id_fmt">User ID: %s</string>
     <string name="email_fmt">Email: %s</string>
-    <string name="addReview">Add your review</string>
+    <string name="addComment">Add your comment :p</string>
+    <string name="Comment">Comment</string>
+    <string name="register">register</string>
+    <string name="wait">Plz wait...</string>
+    <string name="FullName">Full Name</string>
+    <string name="registnewacct">CREATE A NEW ACCOUNT</string>
+    <string name="dscription">Description</string>
+    <string name="firstname">First Name</string>
+    <string name="lastname">Last Name</string>
+    <string name="phone">Phone</string>
+
 
 </resources>

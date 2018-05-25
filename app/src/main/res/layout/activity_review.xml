@@ -6,10 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".ReviewActivity">
     <TextView
-        android:id="@+id/addReview"
+        android:id="@+id/addComment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Review"
+        android:layout_marginTop="10dp"
+        android:text="@string/Comment"
         android:textColor="@color/colorPrimary"
         android:textSize="30sp"
         />
@@ -35,7 +36,7 @@
         android:maxLines="10"
         android:scrollbars="vertical"
         android:background="@android:drawable/edit_text"
-        android:hint="@string/addReview"
+        android:hint="@string/addComment"
         />
 
 </RelativeLayout>

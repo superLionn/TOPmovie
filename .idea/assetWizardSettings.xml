@@ -34,8 +34,10 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="$PROJECT_DIR$/../topmovie.png" />
+                                      <entry key="imageAsset" value="$USER_HOME$/Desktop/topmovie.png" />
                                       <entry key="outputName" value="ic_topmovie" />
+                                      <entry key="theme" value="CUSTOM" />
+                                      <entry key="themeColor" value="000202" />
                                     </map>
                                   </option>
                                 </PersistentState>
