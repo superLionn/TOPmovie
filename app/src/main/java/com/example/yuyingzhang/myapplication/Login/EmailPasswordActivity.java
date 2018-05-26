@@ -68,6 +68,7 @@ public class EmailPasswordActivity extends BaseActivity implements
         // [START initialize_auth]
         mAuth = FirebaseAuth.getInstance();
         // [END initialize_auth]
+        mAuth.signOut();
     }
 
     // [START on_start_check_user]

@@ -15,7 +15,8 @@
     <RelativeLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="180dp">
+        android:layout_height="180dp"
+        android:background="@drawable/black_border">
 
         <ImageView
             android:id="@+id/profile"
@@ -46,6 +47,7 @@
             android:textSize="20sp" />
 
         <EditText
+            android:id="@+id/wfirstname"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_toEndOf="@id/firstname"
@@ -64,6 +66,7 @@
             android:textSize="20sp" />
 
         <EditText
+            android:id="@+id/wlastname"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_below="@+id/firstname"
@@ -85,6 +88,7 @@
             android:textSize="20sp" />
 
         <EditText
+            android:id="@+id/wemail"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_below="@id/lastname"
@@ -101,37 +105,18 @@
         android:layout_marginTop="190dp">
 
         <TextView
-            android:id="@+id/age"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:paddingTop="12dp"
-            android:text="@string/age"
-            android:textSize="20sp"
-            android:textColor="@color/colorPrimary"/>
-
-        <EditText
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="1dp"
-            android:layout_toEndOf="@id/age"
-            android:inputType="text"
-            android:hint="@string/hint"/>
-
-        <TextView
             android:id="@+id/gender"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/age"
             android:paddingTop="12dp"
             android:text="@string/gender"
             android:textSize="20sp"
             android:textColor="@color/colorPrimary"/>
 
         <EditText
+            android:id="@+id/wgender"
             android:layout_width="100dp"
             android:layout_height="40dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="39dp"
             android:layout_toEndOf="@+id/gender"
             android:hint="@string/hint"
             android:inputType="text"/>
@@ -147,48 +132,50 @@
             android:textColor="@color/colorPrimary"/>
 
         <EditText
+            android:id="@+id/wphone"
             android:layout_width="100dp"
             android:layout_height="40dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="79dp"
+            android:layout_below="@+id/wgender"
             android:layout_toEndOf="@id/phone"
             android:hint="@string/hint"
-            android:inputType="text"/>
+            android:inputType="number"/>
         <TextView
-            android:id="@+id/FM"
-            android:layout_width="160dp"
+            android:id="@+id/fm"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/phone"
             android:paddingTop="12dp"
-            android:text="@string/FM"
+            android:text="Movie Prefer"
             android:textSize="20sp"
             android:textColor="@color/colorPrimary"/>
         <EditText
+            android:id="@+id/wfm"
             android:layout_width="100dp"
             android:layout_height="40dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="119dp"
-            android:layout_toEndOf="@id/FM"
+            android:layout_below="@+id/wphone"
+            android:layout_toEndOf="@id/fm"
             android:hint="@string/hint"
             android:inputType="text"/>
         <TextView
-            android:id="@+id/zodiac"
-            android:layout_width="70dp"
+            android:id="@+id/description"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/FM"
+            android:layout_below="@id/fm"
             android:paddingTop="12dp"
-            android:text="@string/zodiac"
+            android:text="@string/description"
             android:textSize="20sp"
             android:textColor="@color/colorPrimary"/>
         <EditText
+            android:id="@+id/wdescription"
             android:layout_width="100dp"
             android:layout_height="40dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="159dp"
-            android:layout_toEndOf="@id/zodiac"
+            android:layout_below="@+id/wfm"
+            android:layout_toEndOf="@id/description"
             android:hint="@string/hint"
-            android:inputType="text"/>
+            android:background="@drawable/black_border"
+            android:inputType="textMultiLine"/>
         <Button
+            android:id="@+id/btnsave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="230dp"

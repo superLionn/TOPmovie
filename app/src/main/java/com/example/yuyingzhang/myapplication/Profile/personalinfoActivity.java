@@ -7,19 +7,25 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.yuyingzhang.myapplication.R;
+import com.example.yuyingzhang.myapplication.User.user_account_setting;
 import com.example.yuyingzhang.myapplication.Utils.BottomNavigationViewHelper;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 public class personalinfoActivity extends AppCompatActivity {
@@ -32,14 +38,54 @@ public class personalinfoActivity extends AppCompatActivity {
     protected static Uri tempUri;
     private ImageView profile;
 
+    private EditText mFirstName,mLastName, mDescription, mPhone, mEmail, mPreferMovieType;
+    private Button mBtnsave;
+    private user_account_setting mSettings;
+
+    //firebase
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+    private FirebaseDatabase mFirebaseDatabase;
+    private DatabaseReference myRef;
+    private FirebaseMethods mFirebaseMethods;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personalinfo);
         Log.d(TAG, "onCreate: started");
         profile=(ImageView) findViewById(R.id.profile);
+
+        mFirstName = (EditText) findViewById(R.id.wfirstname);
+        mLastName = (EditText) findViewById(R.id.wlastname);
+        mDescription = (EditText) findViewById(R.id.wdescription);
+        mPhone = (EditText) findViewById(R.id.wphone);
+        mEmail = (EditText) findViewById(R.id.wemail);
+        mPreferMovieType = (EditText) findViewById(R.id.wfm);
+        mBtnsave = (Button) findViewById(R.id.btnsave);
+
+        mBtnsave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveProfileSetting();
+            }
+        });
+
+
         setupBottomNavigationView();
+}
+
+    private void saveProfileSetting() {
+        final String firstName = mFirstName.getText().toString();
+        final String lastName = mLastName.getText().toString();
+        final String description = mDescription.getText().toString();
+        final long phone = Long.parseLong(mPhone.getText().toString());
+        final String email = mEmail.getText().toString();
+        final String prefermovie = mPreferMovieType.getText().toString();
+
+
     }
+
     private void setupBottomNavigationView(){
         Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView.");
         BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavViewBar);
