@@ -29,7 +29,7 @@ public class FirebaseMethods {
         }
     }
 
-    public void updateUserAccountSetting(String description, String first_name,String last_name, String prefer_movie_type, String profile_photo, long phone){
+    public void updateUserAccountSetting(String description, String first_name,String last_name, String prefer_movie_type, long phone){
 
         if (description != null){
             myRef.child("user_account_setting")
@@ -50,12 +50,6 @@ public class FirebaseMethods {
                     .setValue(first_name);
         }
         if (prefer_movie_type != null){
-            myRef.child("user_account_setting")
-                    .child(userID)
-                    .child("first_name")
-                    .setValue(first_name);
-        }
-        if (profile_photo != null){
             myRef.child("user_account_setting")
                     .child(userID)
                     .child("first_name")

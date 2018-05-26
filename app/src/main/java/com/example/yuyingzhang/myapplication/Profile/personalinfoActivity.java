@@ -24,9 +24,14 @@ import com.example.yuyingzhang.myapplication.R;
 import com.example.yuyingzhang.myapplication.User.user_account_setting;
 import com.example.yuyingzhang.myapplication.Utils.BottomNavigationViewHelper;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import com.squareup.picasso.Picasso;
 
 public class personalinfoActivity extends AppCompatActivity {
 
@@ -38,8 +43,11 @@ public class personalinfoActivity extends AppCompatActivity {
     protected static Uri tempUri;
     private ImageView profile;
 
-    private EditText mFirstName,mLastName, mDescription, mPhone, mEmail, mPreferMovieType;
-    private Button mBtnsave;
+    private EditText mFirstName;
+    private EditText mLastName;
+    private EditText mDescription;
+    private EditText mPhone;
+    private EditText mPreferMovieType;
     private user_account_setting mSettings;
 
     //firebase
@@ -48,6 +56,7 @@ public class personalinfoActivity extends AppCompatActivity {
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference myRef;
     private FirebaseMethods mFirebaseMethods;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,30 +69,123 @@ public class personalinfoActivity extends AppCompatActivity {
         mLastName = (EditText) findViewById(R.id.wlastname);
         mDescription = (EditText) findViewById(R.id.wdescription);
         mPhone = (EditText) findViewById(R.id.wphone);
-        mEmail = (EditText) findViewById(R.id.wemail);
         mPreferMovieType = (EditText) findViewById(R.id.wfm);
-        mBtnsave = (Button) findViewById(R.id.btnsave);
+        Button mBtnsave = (Button) findViewById(R.id.btnsave);
 
         mBtnsave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveProfileSetting();
+                saveUserSetting();
             }
         });
 
+        mFirebaseMethods = new FirebaseMethods(mContext);
 
+        setupFirebaseAuth();
         setupBottomNavigationView();
+
 }
 
-    private void saveProfileSetting() {
+    /**
+     * Setup Firebase auth object
+     */
+
+    private void setupFirebaseAuth(){
+        Log.d(TAG, "setupFirebaseAuth: test");
+
+        mAuth = FirebaseAuth.getInstance();
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        myRef = mFirebaseDatabase.getReference();
+
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+
+                // check if the user is logged in
+                //checkCurrentUser(user);
+
+                if (user != null){
+                    // user is signed in
+                    Log.d(TAG, "onAuthStateChanged: signed_in: " + user.getUid());
+
+                } else {
+                    // user is signed out
+                    Log.d(TAG, "onAuthStateChanged: signed_out");
+
+                }
+            }
+        };
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                setUserWidgets(mFirebaseMethods.getUserAccountSetting(dataSnapshot));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void saveUserSetting() {
+        Log.d(TAG, "saveUserSetting: test save");
         final String firstName = mFirstName.getText().toString();
+        Log.d(TAG, "saveUserSetting:  test fn");
         final String lastName = mLastName.getText().toString();
+        Log.d(TAG, "saveUserSetting:  test ln");
+
         final String description = mDescription.getText().toString();
+        Log.d(TAG, "saveUserSetting:  test de");
+
         final long phone = Long.parseLong(mPhone.getText().toString());
-        final String email = mEmail.getText().toString();
+        Log.d(TAG, "saveUserSetting:  test ph");
+
         final String prefermovie = mPreferMovieType.getText().toString();
 
+        Log.d(TAG, "saveUserSetting: test again");
 
+        //变更保存
+        if(!description.equals(mSettings.getDescription())) {
+            Log.d(TAG, "saveUserSetting: test description");
+            mFirebaseMethods.updateUserAccountSetting(description,null,null,null,0);
+            Toast.makeText(mContext, "SAVED:p", Toast.LENGTH_SHORT).show();
+        }
+        else if (!firstName.equals(mSettings.getFirst_name())) {
+            mFirebaseMethods.updateUserAccountSetting(null,firstName,null,null,0);
+            Toast.makeText(mContext, "SAVED:p", Toast.LENGTH_SHORT).show();
+        }
+        else if (!lastName.equals(mSettings.getLast_name())) {
+            mFirebaseMethods.updateUserAccountSetting(null,null,lastName,null,0);
+            Toast.makeText(mContext, "SAVED:p", Toast.LENGTH_SHORT).show();
+        }
+        else if (!prefermovie.equals(mSettings.getPrefer_movie_type())) {
+            mFirebaseMethods.updateUserAccountSetting(description,null,null,prefermovie,0);
+            Toast.makeText(mContext, "SAVED:p", Toast.LENGTH_SHORT).show();
+        }
+        else if (phone!=0) {
+            mFirebaseMethods.updateUserAccountSetting(description,null,null,null,phone);
+            Toast.makeText(mContext, "SAVED:p", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void setUserWidgets(user_account_setting userAccountSetting){
+        mSettings = userAccountSetting;
+        Log.d(TAG, "setUserWidgets: test");
+        mFirstName.setText(userAccountSetting.getFirst_name());
+        Log.d(TAG, "setUserWidgets: test first name");
+        mLastName.setText(userAccountSetting.getLast_name());
+        Log.d(TAG, "setUserWidgets: test last name");
+        mDescription.setText(userAccountSetting.getDescription());
+        Log.d(TAG, "setUserWidgets: test description");
+        mPreferMovieType.setText(userAccountSetting.getPrefer_movie_type());
+        Log.d(TAG, "setUserWidgets: test prefer movie");
+        mPhone.setText(String.valueOf(userAccountSetting.getPhone()));
+        Log.d(TAG, "setUserWidgets: test phone");
+        Picasso.with(mContext).load(userAccountSetting.getProfile_photo()).into(profile);
+        Log.d(TAG, "setUserWidgets: test photo");
     }
 
     private void setupBottomNavigationView(){
@@ -185,5 +287,17 @@ public class personalinfoActivity extends AppCompatActivity {
             Toast.makeText(this, "Need Permission", Toast.LENGTH_SHORT).show();
         }
     }
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+    public void onStop(){
+        super.onStop();
+        if(mAuthListener != null){
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
+    }
+
 
 }

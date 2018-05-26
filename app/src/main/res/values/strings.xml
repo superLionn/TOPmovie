@@ -13,15 +13,20 @@
     <string name="comedy">Comedy</string>
     <string name="romance">Romance</string>
     <string name="scifi">Sci-Fi</string>
-
     <string name="thriller">Thriller</string>
     <string name="actionlist">Action List</string>
     <string name="comedylist">Comedy List</string>
 
+    <string name="registnewacct">CREATE A NEW ACCOUNT</string>
+    <string name="dscription">Description</string>
+    <string name="firstname">First Name</string>
+    <string name="lastname">Last Name</string>
+    <string name="phone">Phone</string>
+    <string name="description">Description</string>
+
     <string name="romancelist">Romance List</string>
     <string name="scifilist">Sci-Fi List</string>
     <string name="thrillerlist">Thriller List</string>
-    <string name="name">Name</string>
     <string name="email">E-mail</string>
     <string name="age">Age</string>
     <string name="gender">Gender</string>
@@ -133,13 +138,6 @@
     <string name="Comment">Comment</string>
     <string name="register">register</string>
     <string name="wait">Plz wait...</string>
-    <string name="FullName">Full Name</string>
-    <string name="registnewacct">CREATE A NEW ACCOUNT</string>
-    <string name="dscription">Description</string>
-    <string name="firstname">First Name</string>
-    <string name="lastname">Last Name</string>
-    <string name="phone">Phone</string>
-    <string name="description">Description</string>
 
 
 </resources>
