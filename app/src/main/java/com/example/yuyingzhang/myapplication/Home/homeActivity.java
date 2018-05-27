@@ -28,7 +28,7 @@ public class homeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         Log.d(TAG, "onCreate: starting.");
         setupBottomNavigationView();
-        setupViewPager();
+//        setupViewPager();
 
     }
 
@@ -36,7 +36,7 @@ public class homeActivity extends AppCompatActivity {
         SectionPagerAdapter adapter = new SectionPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new HomeFragment());
         ViewPager viewPager = findViewById(R.id.container);
-        viewPager.setAdapter(adapter);
+//        viewPager.setAdapter(adapter);
 
         TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);

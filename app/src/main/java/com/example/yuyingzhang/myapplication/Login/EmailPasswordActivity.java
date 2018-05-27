@@ -83,7 +83,7 @@ public class EmailPasswordActivity extends BaseActivity implements
 
 
         // [END initialize_auth]
-//        mAuth.signOut();
+       mAuth.signOut();
     }
 
     // [START on_start_check_user]

@@ -46,7 +46,6 @@ public class searchpageActivity extends AppCompatActivity {
         movie.add("Love Actually");
         movie.add("A Walk to Remember");
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(searchpageActivity.this,android.R.layout.simple_spinner_dropdown_item,movie);
-        ArrayAdapter<String> adapter1=new ArrayAdapter<String>(searchpageActivity.this,android.R.layout.simple_spinner_dropdown_item,movie);
         search_box.setAdapter(adapter);
         movies.setAdapter(adapter);
     }
