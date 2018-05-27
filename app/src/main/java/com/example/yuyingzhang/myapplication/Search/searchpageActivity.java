@@ -40,14 +40,12 @@ public class searchpageActivity extends AppCompatActivity {
 
         setupBottomNavigationView();
         search_box=(AutoCompleteTextView)findViewById(R.id.search_box);
-        movies=(Spinner)findViewById(R.id.movies);
         movie.add("Titanic");
         movie.add("La La Land");
         movie.add("Love Actually");
         movie.add("A Walk to Remember");
-        ArrayAdapter<String> adapter=new ArrayAdapter<String>(searchpageActivity.this,android.R.layout.simple_spinner_dropdown_item,movie);
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(searchpageActivity.this,android.R.layout.simple_spinner_dropdown_item);
         search_box.setAdapter(adapter);
-        movies.setAdapter(adapter);
     }
     /**
      * bottomNavigationView setup

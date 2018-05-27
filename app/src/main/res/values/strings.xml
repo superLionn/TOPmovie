@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">TopMoviesca</string>
     <string name="search">search page</string>
     <string name="movieinfo">Movie Info</string>
     <string name="personalinfo">Personal Info</string>
@@ -138,6 +138,11 @@
     <string name="Comment">Comment</string>
     <string name="register">register</string>
     <string name="wait">Plz wait...</string>
+    <string name="Genery">Genery</string>
+    <string name="Genre">Genre</string>
+    <string name="hint_author">author</string>
+    <string name="hint_quoteText">quoteText</string>
+    <string name="button_save">save</string>
 
 
 </resources>
